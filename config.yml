@@ -1,0 +1,11 @@
+logging:
+  level: INFO
+  loggers:
+    com.pavel.bookshop: DEBUG
+
+dbConfig:
+  login: "root"
+  password: "root"
+  host: "localhost"
+  port: "3307"
+  dbName: "bookShop"
