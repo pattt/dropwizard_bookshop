@@ -2,6 +2,7 @@ package com.pavel.bookshop.resources;
 
 import com.codahale.metrics.annotation.Timed;
 import com.github.davidmoten.rx.jdbc.Database;
+import com.google.inject.Inject;
 import com.pavel.bookshop.BookshopConfiguration;
 import com.pavel.bookshop.api.Book;
 import com.pavel.bookshop.db.RxDb;
@@ -19,12 +20,9 @@ public class BooksResource {
 
     final private Database db;
 
-    final private BookshopConfiguration configuration;
-
-    public BooksResource(BookshopConfiguration configuration) {
-        RxDb rxDb = new RxDb(configuration);
+    @Inject
+    public BooksResource(RxDb rxDb) {
         this.db = rxDb.getDbProvider();
-        this.configuration = configuration;
     }
 
     @GET
